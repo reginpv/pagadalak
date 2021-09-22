@@ -14,4 +14,10 @@ Camiling Institution Finder
 - Software: React, Next.js, Tailwincss
 - Host: Vercel cloud server
 - DB: Firebase
-- Cloudflare: Security and DNS management
+- Cloudflare: Security and DNS management (https://www.whatsmydns.net/#NS/pagadalak.com)
+
+### Accounts
+- Godaddy (Paolo account)
+- Cloudflare (Dev account)
+- Firebase (Dev account)
+- Github (Dev account)
