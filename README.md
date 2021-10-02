@@ -21,3 +21,14 @@ Camiling Institution Finder
 - Cloudflare (Dev account)
 - Firebase (Dev account)
 - Github (Dev account)
+
+### Documentation
+- No formal documention, I left comments everywhere for basic guidance
+
+```
+ ///
+ /// This is a sample comment
+ ///
+
+ ...code
+```

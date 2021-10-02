@@ -1,8 +1,8 @@
 [
   {
     "type": "text",
-    "name": "user",
-    "label": "User",
+    "name": "username",
+    "label": "Username",
     "validation": {
       "required": true,
       "valid-feedback": "",
