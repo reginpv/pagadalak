@@ -12,7 +12,12 @@
         "value": "private",
         "label": "Private"
       }
-    ]
+    ],
+    "validation": {
+      "required": false,
+      "valid-feedback": "",
+      "invalid-feedback": "required."
+    }
   },
   {
     "name": "level",
@@ -31,6 +36,67 @@
         "value": "senior-high-school",
         "label": "Senior High School"
       }
-    ]
+    ],
+    "validation": {
+      "required": false,
+      "valid-feedback": "",
+      "invalid-feedback": "required."
+    }
+  },
+  {
+    "name": "learning-strategy",
+    "label": "Learning Strategy",
+    "type": "select",
+    "options": [
+      {
+        "value": "modular-learning",
+        "label": "Modular Learning"
+      },
+      {
+        "value": "online-learning",
+        "label": "Online Learning"
+      },
+      {
+        "value": "blended-learning",
+        "label": "Blended Learning"
+      }
+    ],
+    "validation": {
+      "required": false,
+      "valid-feedback": "",
+      "invalid-feedback": "required."
+    }
+  },
+  {
+    "name": "tuition-range",
+    "label": "Tuition Range",
+    "type": "select",
+    "options": [
+      {
+        "value": "free",
+        "label": "Free Tuition"
+      },
+      {
+        "value": "0 - 19,000",
+        "label": "0 - 19,000"
+      },
+      {
+        "value": "20,000 - 29,000",
+        "label": "20,000 - 29,000"
+      },
+      {
+        "value": "40,000 - 59,000",
+        "label": "40,000 - 59,000"
+      },
+      {
+        "value": "60,000 above",
+        "label": "60,000 above"
+      }
+    ],
+    "validation": {
+      "required": false,
+      "valid-feedback": "",
+      "invalid-feedback": "required."
+    }
   }
 ]
