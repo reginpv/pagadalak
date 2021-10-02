@@ -2,11 +2,14 @@
 // Packages
 //
 import { useContext, useState } from 'react'
+import Cookies from 'js-cookie'
+import router, { useRouter } from 'next/router'
 
 //
 // Helpers
 //
 import { GlobalContext } from '../context/GlobalState'
+import { HOSTNAME } from '../config/constants'
 
 //
 // data
@@ -15,13 +18,19 @@ import formLoginInputs from '../data/formLoginInputs.json'
 
 export default function FormLogin({ className }){
 
-  const { user, editUser } = useContext(GlobalContext)
+  const { editUser } = useContext(GlobalContext)
+  const router = useRouter()
 
-  const [ stateIsLoading, setStateIsLoading ] = useState(true)
+  const [ stateIsLoading, setStateIsLoading ] = useState(false)
 
   const handleLogin = e => {
 
     e.preventDefault()
+
+    setStateIsLoading(true)
+
+    const el = document.querySelector('[data-form-message]')
+    el.innerHTML = null
 
     const username = e.target.username.value
     const password = e.target.password.value
@@ -54,6 +63,45 @@ export default function FormLogin({ className }){
       return false
     }
 
+    // Api call
+    let formData = {
+      username,
+      password
+    }
+    fetch(`${HOSTNAME}/api/users/login`,{
+      method: "POST",
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(formData)
+    })
+      .then(res=>res.json())
+      .then(data=> {
+
+        if(data?.name) {
+
+          // Cookie
+          Cookies.set('_paga', JSON.stringify(data))
+
+          editUser(data)
+
+          router.push("/admin")
+
+        } else {
+          
+          el.innerHTML = `<div class="text-center bg-red-50 text-red-500 py-3">User not found or credentials do not match.</div>`
+          
+        }
+
+        setStateIsLoading(false)
+
+      })
+      .catch(err=>{
+        console.log('err: ', err) 
+        el.innerHTML = `<div class="text-center bg-red-50 text-red-500 py-3">${err}.</div>`
+        setStateIsLoading(false) 
+      })
+
   }
 
   return(
@@ -66,7 +114,14 @@ export default function FormLogin({ className }){
           </div>
         ))
       }
-      <button role="submit" className="border p-3 bg-gray-100">Login</button>
+
+      <div data-form-message></div>
+
+      <button role="submit" className="border p-3 bg-gray-100">
+        {
+          stateIsLoading ? `Please wait, logging in...` : `Login`
+        }
+      </button>
     </form>
   )
 }

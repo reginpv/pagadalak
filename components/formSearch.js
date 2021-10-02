@@ -11,7 +11,7 @@ export default function FormSearch({ className }){
               <option value="">{`Select ${input.label}`}</option>
               {
                 input.options.map(option=>(
-                  <option value={option.value}>{option.label}</option>
+                  <option key={option.value} value={option.value}>{option.label}</option>
                 ))
               }
             </select>

@@ -1,6 +1,8 @@
 module.exports = {
   reactStrictMode: true,
   env: {
+    HOSTNAME: process.env.HOSTNAME,
+    
     //
     // This is an insecure implementation of user access
     // Given the nature of the project, and is demo purposes only
