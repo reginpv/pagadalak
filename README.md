@@ -8,7 +8,7 @@ Camiling Institution Finder
 - Run `npm run dev` for development env.
 
 ### Updating
-- Commit and push to `main` repo branch
+- Commit and push to `main` repo branch, auto deploy to Vercel cloud.
 
 ### Technologies
 - Software: React, Next.js, Tailwincss
