@@ -1,0 +1,36 @@
+[
+  {
+    "name": "type",
+    "label": "Type of Institution",
+    "type": "select",
+    "options": [
+      {
+        "value": "public",
+        "label": "Public"
+      },
+      {
+        "value": "private",
+        "label": "Private"
+      }
+    ]
+  },
+  {
+    "name": "level",
+    "label": "Education Level",
+    "type": "select",
+    "options": [
+      {
+        "value": "elementary",
+        "label": "Elementary"
+      },
+      {
+        "value": "junior-high-school",
+        "label": "Junior High School"
+      },
+      {
+        "value": "senior-high-school",
+        "label": "Senior High School"
+      }
+    ]
+  }
+]

@@ -7,7 +7,7 @@ const Basic = ({ children, className, meta }) => {
   return(
     <>
     <Meta {...meta} />
-    <div className={`template template--basic min-h-screen flex flex-col ${className}`}>
+    <div className={`template template--basic min-h-screen flex flex-col text-16px ${className}`}>
       <Header />
       <main className="flex-grow">
         {children}
