@@ -1,0 +1,22 @@
+[
+  {
+    "type": "text",
+    "name": "user",
+    "label": "User",
+    "validation": {
+      "required": true,
+      "valid-feedback": "",
+      "invalid-feedback": "Username is required."
+    }
+  },
+  {
+    "type": "password",
+    "name": "password",
+    "label": "Password",
+    "validation": {
+      "required": true,
+      "valid-feedback": "",
+      "invalid-feedback": "Password is required."
+    }
+  }
+]
