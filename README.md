@@ -50,3 +50,6 @@ Camiling Institution Finder
 
  For your guidance
 ```
+
+### Env
+- Do not expose your secrete (see `.env.sample` comments)

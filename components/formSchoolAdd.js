@@ -116,7 +116,7 @@ export default function FormSchoolAdd({ className }){
 
       <button role="submit" className="border p-3 bg-gray-100">
         {
-          stateIsLoading ? `Please wait, logging in...` : `Login`
+          stateIsLoading ? `Please wait, adding school...` : `Submit`
         }
       </button>
     </form>
