@@ -8,13 +8,14 @@ import Cookies from 'js-cookie'
 //
 // Helpers
 //
-import { GlobalContext } from '../../context/GlobalState'
-import { isLoggedIn } from '../../lib/helper'
+import { GlobalContext } from '../../../context/GlobalState'
+import { isLoggedIn } from '../../../lib/helper'
 
 //
 // Components
 //
-import Basic from "../../components/templates/basic"
+import Basic from "../../../components/templates/basic"
+import FormSchoolAdd from '../../../components/formSchoolAdd'
 
 export default function Admin() {
 
@@ -23,7 +24,10 @@ export default function Admin() {
 
   useEffect(()=>{
 
-    if(!isLoggedIn()){
+    if(isLoggedIn()){
+      editUser(JSON.parse(Cookies.get('_paga')))
+      //router.push("/login")
+    } else {
       router.push("/login")
     }
     
@@ -32,7 +36,7 @@ export default function Admin() {
   return (
     <Basic>
       <div className="p-30px">
-        Welcome to admin
+        <FormSchoolAdd />
       </div>
     </Basic>
   )

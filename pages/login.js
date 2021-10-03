@@ -1,14 +1,8 @@
 //
 // Packages
 //
-import { useContext, useEffect } from 'react'
+import { useEffect } from 'react'
 import { useRouter } from 'next/router'
-import Cookies from 'js-cookie'
-
-//
-// Helpers
-//
-import { GlobalContext } from '../context/GlobalState'
 
 //
 // Components
@@ -19,13 +13,11 @@ import { isLoggedIn } from '../lib/helper'
 
 export default function Login() {
 
-  const { editUser } = useContext(GlobalContext)
   const router = useRouter()
 
   useEffect(()=>{
 
     if(isLoggedIn()){
-      editUser(JSON.parse(Cookies.get('_paga')))
       router.push("/")
     }
 

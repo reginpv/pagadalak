@@ -43,7 +43,7 @@ export default function Header(){
           }
           <li>
             {
-              isLoggedIn() && user?.name ?
+              isLoggedIn() ?
               <>
                 <span className="hidden md:inline-block">Welcome {user.name},&nbsp;</span> 
                 <a href="#" onClick={e=>handeLogout()}>Logout</a>

@@ -1,0 +1,96 @@
+[
+  {
+    "type": "text",
+    "name": "name",
+    "label": "School name",
+    "validation": {
+      "required": true,
+      "valid-feedback": "",
+      "invalid-feedback": "School name is required."
+    }
+  },
+  {
+    "type": "select",
+    "name": "type",
+    "label": "School type",
+    "validation": {
+      "required": true,
+      "valid-feedback": "",
+      "invalid-feedback": "School type is required."
+    },
+    "options": [
+      {
+        "value": "public",
+        "label": "Public"
+      },
+      {
+        "value": "private",
+        "label": "Private"
+      }
+    ]
+  },
+  {
+    "type": "select",
+    "name": "district",
+    "label": "Dictrict",
+    "validation": {
+      "required": true,
+      "valid-feedback": "",
+      "invalid-feedback": "District is required."
+    },
+    "options": [
+      {
+        "value": "central district",
+        "label": "Central District"
+      },
+      {
+        "value": "west district",
+        "label": "West District"
+      },
+      {
+        "value": "east district",
+        "label": "East District"
+      }
+    ]
+  },
+  {
+    "type": "checklist",
+    "name": "levels",
+    "label": "Levels",
+    "validation": {
+      "required": true,
+      "valid-feedback": "",
+      "invalid-feedback": "Level is required."
+    },
+    "options": [
+      "Elementary",
+      "Junior High School",
+      "Senior High School",
+      "College"
+    ]
+  },
+  {
+    "type": "select",
+    "name": "strategies",
+    "label": "Strategies",
+    "validation": {
+      "required": true,
+      "valid-feedback": "",
+      "invalid-feedback": "Strategies is required."
+    },
+    "options": [
+      {
+        "value": "Modular Learning",
+        "label": "Modular Learning"
+      },
+      {
+        "value": "Blended Learning",
+        "label": "Blended Learning"
+      },
+      {
+        "value": "Modular Learning and Blended Learning",
+        "label": "Modular Learning and Blended Learning"
+      }
+    ]
+  }
+]
