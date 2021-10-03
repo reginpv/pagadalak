@@ -16,15 +16,22 @@ import { isLoggedIn } from '../../lib/helper'
 import Footer from '../footer'
 import Header from '../header'
 import Meta from './meta'
+import router from 'next/router'
 
-const Basic = ({ children, className, classMain, meta }) => {
+const Basic = ({ children, className, classMain, meta, auth }) => {
 
   const { user, editUser } = useContext(GlobalContext)
 
   useEffect(()=>{
 
+    // Re validate if there's a user loggedin
     if(isLoggedIn()){
       editUser(JSON.parse(Cookies.get('_paga')))
+    }
+
+    // Check if auth is needed
+    if(auth && !isLoggedIn()) {
+      router.push("/login")
     }
 
   },[])
