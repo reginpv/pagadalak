@@ -20,7 +20,7 @@ export default function FormSchoolAdd({ className }){
     const el = document.querySelector('[data-form-message]')
     el.innerHTML = null
 
-    const required = ["name", "type", "district", "geoaddress"]
+    const required = ["name", "type"]
 
     console.log(e.target.tuitionElementary)
 

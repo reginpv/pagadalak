@@ -59,14 +59,17 @@ export default function FormSchoolEdit({ className, schoolId,  school }){
         </select>
       </div>
 
-      <div className="">
-        <select className="w-full focus:outline-none p-3 border" name="district" value={stateSchool?.district || ``} onChange={e=>setStateSchool({...stateSchool, district: e.target.value})}>
-          <option value="">Please select district</option>
-          <option value="Central District">Central District</option>
-          <option value="East District">East District</option>
-          <option value="West Disctrict">West District</option>
-        </select>
-      </div>
+      {
+        stateSchool?.type == "public" ?
+          <div className="">
+            <select className="w-full focus:outline-none p-3 border" name="district" value={stateSchool?.district || ``} onChange={e=>setStateSchool({...stateSchool, district: e.target.value})}>
+              <option value="">Please select district</option>
+              <option value="Central District">Central District</option>
+              <option value="East District">East District</option>
+              <option value="West Disctrict">West District</option>
+            </select>
+          </div> : null
+      }
 
       <div className="">
         <input className="w-full focus:outline-none p-3 border" type="text" name="geoaddress" placeholder="Please enter geo address" value={stateSchool?.geoaddress || ``} onChange={e=>setStateSchool({...stateSchool, geoaddress: e.target.value})} />
