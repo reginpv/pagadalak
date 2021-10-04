@@ -53,21 +53,21 @@ export default function Search({ qs }) {
   return (
     <Basic>
 
-      <div className="p-30px">
+      <div className="px-30px py-3 md:py-30px">
         <FormSearch query={query} className="w-full grid grid-flow-row md:grid-flow-col gap-2 md:gap-5 p-3 bg-gray-100" />
       </div>
 
       {
         searchResults.length > 0 ?
         <>
-          <div className="p-30px">
+          <div className="px-30px py-3 md:py-30px">
             <div className="border-t border-b py-4">Found {searchResults.length} results.</div>
           </div>
         </> :
         null
       }
 
-      <div className="px-30px grid md:grid-cols-2 lg:grid-cols-4 gap-2 md:gap-5">
+      <div className="px-30px py-3 md:py-30px grid md:grid-cols-2 lg:grid-cols-4 gap-2 md:gap-5">
         {
           searchResults.length > 0 ?
           searchResults.map(school=>(

@@ -1,23 +1,10 @@
 import { useEffect, useState, useContext } from 'react'
 import formSearchInputs from '../data/formSearchInputs.json'
-import { collection, query, where, getDocs } from '@firebase/firestore'
-import db from '../config/firebase'
 import { GlobalContext } from '../context/GlobalState'
 
-export default function FormSearch({ className, query }){
+export default function FormSearch({ className }){
 
-  const { editSearchResults } = useContext(GlobalContext)
-
-  const [ stateType, setStateType ] = useState("")
   const [ stateTerms, setStateTerms] = useState({type: "", level: "", ["strategy"]: "", ["tuition"]: ""})
-
-  useEffect(async ()=>{
-
-    setStateType(query)
-
-
-  },[ query ])
-
 
   return(
     <form action="/search" method="get" className={className}>

@@ -26,7 +26,7 @@ export default function Header(){
   }
 
   return(
-    <header className="p-30px flex justify-between items-center">
+    <header className="px-30px py-3 md:py-30px flex justify-between items-center sticky top-0 bg-white">
       <div className="font-bold text-40px text-gray-700 uppercase">
         <Link href="/"><a>Logo</a></Link>
       </div>
