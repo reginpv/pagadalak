@@ -1,4 +1,3 @@
-import 'leaflet/dist/leaflet.css'
 import 'tailwindcss/tailwind.css'
 import '../styles/style.css'
 
