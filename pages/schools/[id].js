@@ -38,7 +38,7 @@ export default function School({ id }) {
       <div className="p-30px">
         <h1 className="font-bold text-xl">{stateSchool.name}</h1>
       </div>
-      <div className="p-30px flex space-x-10">
+      <div className="p-30px flex flex-col-reverse md:flex-row md:space-x-10">
         <div>
           <div>
             {
@@ -51,7 +51,7 @@ export default function School({ id }) {
             }
           </div>
         </div>
-        <div className="flex-grow relative">
+        <div className="flex-grow">
           <Map latlon={stateLatLon} school={stateSchool} />
         </div>
 

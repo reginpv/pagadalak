@@ -19,11 +19,9 @@ export default function Map({ latlon = [0, 0], school }) {
         position={[latlon[0], latlon[1]]} 
       >
         <Popup>
-          {school.name}
+          <p className="font-bold">{school.name}</p>
         </Popup>
       </Marker>
     </MapContainer>
   )
 }
-
-//geo:15.6903218263424,120.410171853981?z=18
