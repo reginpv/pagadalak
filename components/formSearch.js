@@ -18,7 +18,10 @@ export default function FormSearch({ className }){
 
     if(stateTerms.type!=="") constraints.push(where("type", "==", stateTerms.type))
     if(stateTerms.level!=="") constraints.push(where(stateTerms.level, "in", [true, "true"]))
-    if(stateTerms.strategy!=="") constraints.push(where(stateTerms.strategy, "in", [true, "true"]))
+    if(stateTerms.strategy!=="") constraints.push(where(stateTerms.strategy, "==", true))
+    if(stateTerms.tuition!=="") {
+      constraints.push(where("elementaryTuition", "==", stateTerms.tuition))
+    }
 
     const schoolsRef = collection(db, "schools")
 

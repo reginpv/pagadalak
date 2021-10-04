@@ -77,20 +77,20 @@
         "label": "Free Tuition"
       },
       {
-        "value": "0 - 19,000",
-        "label": "0 - 19,000"
+        "value": "P1-P20,000",
+        "label": "P1 - P20,000"
       },
       {
-        "value": "20,000 - 29,000",
-        "label": "20,000 - 29,000"
+        "value": "P21,000-P39,999",
+        "label": "P21,000 - P39,999"
       },
       {
-        "value": "40,000 - 59,000",
-        "label": "40,000 - 59,000"
+        "value": "P40,000-P59,999",
+        "label": "P40,000 - P59,999"
       },
       {
-        "value": "60,000 above",
-        "label": "60,000 above"
+        "value": "P60,000 above",
+        "label": "P60,000 above"
       }
     ],
     "validation": {
