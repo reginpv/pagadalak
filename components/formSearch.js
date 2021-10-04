@@ -18,50 +18,6 @@ export default function FormSearch({ className, query }){
 
   },[ query ])
 
-  const handleSubmit = async e => {
-
-    e.preventDefault()
-
-    let results = []
-    let constraints = []
-
-    console.log(stateTerms)
-
-    if(stateTerms.type!=="") constraints.push(where("type", "==", stateTerms.type))
-    if(stateTerms.level!=="") constraints.push(where(stateTerms.level, "==", true))
-    if(stateTerms.strategy!=="") constraints.push(where(stateTerms.strategy, "==", true))
-    if(stateTerms.tuition!=="") {
-
-      if(stateTerms.level=="elementary") constraints.push(where("elementaryTuition", "==", stateTerms.tuition))
-
-      if(stateTerms.level=="juniorHighchool") constraints.push(where("juniorHighSchoolTuition", "==", stateTerms.tuition))
-
-      if(stateTerms.level=="seniorHighSchool") constraints.push(where("seniorHighSchoolTuition", "==", stateTerms.tuition))
-
-    }
-
-    const schoolsRef = collection(db, "schools")
-
-    const q = query(schoolsRef, ...constraints)
-
-    const querySnapshot = await getDocs(q)
-
-    querySnapshot.forEach((doc) => {
-
-      // doc.data() is never undefined for query doc snapshots
-      // console.log(doc.data());
-
-      results.push({
-        ...doc.data(),
-        id: doc.id
-      })
-      
-    })
-
-    editSearchResults(results)
-
-  }
-
 
   return(
     <form action="/search" method="get" className={className}>

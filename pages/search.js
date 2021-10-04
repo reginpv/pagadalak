@@ -48,7 +48,7 @@ export default function Search({ qs }) {
 
     editSearchResults(results)
 
-  }, [query])
+  }, [qs])
 
   return (
     <Basic>

@@ -28,12 +28,15 @@ export default function FormSchoolAdd({ className }){
     const type = e.target.type.value
     const district = e.target.district.value
     const geoaddress = e.target.geoaddress.value
-    const elementary = e.target.elementary.value
-    const juniorHighSchool = e.target.juniorHighSchool.value
-    const seniorHighSchool = e.target.seniorHighSchool.value
-    const elementaryTuition = e.target.elementaryTuition?.value
-    const juniorHighSchoolTuition = e.target.juniorHighSchoolTuition?.value
-    const seniorHighSchoolTuition = e.target.seniorHighSchoolTuition?.value
+    const elementary = e.target.elementary.checked
+    const juniorHighSchool = e.target.juniorHighSchool.checked
+    const seniorHighSchool = e.target.seniorHighSchool.checked
+    const elementaryTuition = e.target.elementaryTuition.value
+    const juniorHighSchoolTuition = e.target.juniorHighSchoolTuition.value
+    const seniorHighSchoolTuition = e.target.seniorHighSchoolTuition.value
+    const modularLearning = e.target.modularLearning.checked
+    const blendedLearning = e.target.blendedLearning.checked
+    const onlineLearning = e.target.onlineLearning.checked
 
     let errors = []
 
@@ -71,13 +74,17 @@ export default function FormSchoolAdd({ className }){
         type,
         district,
         geoaddress,
-        elementary,
-        juniorHighSchool,
-        seniorHighSchool,
+        elementary: elementary,
+        juniorHighSchool: juniorHighSchool,
+        seniorHighSchool: seniorHighSchool,
         elementaryTuition,
         juniorHighSchoolTuition,
-        seniorHighSchoolTuition
+        seniorHighSchoolTuition,
+        modularLearning: modularLearning,
+        blendedLearning: blendedLearning,
+        onlineLearning: onlineLearning
       }
+      console.log(payload)
       const docRef = await addDoc(collectionRef, payload)
 
       if(docRef?.id) {
