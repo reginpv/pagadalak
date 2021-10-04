@@ -1,58 +1,53 @@
-import { useContext, useEffect, useState } from "react"
+import { useEffect, useState } from "react"
 import Link from 'next/link'
 import Basic from "../../components/templates/basic"
-import { GlobalContext } from '../../context/GlobalState'
 import db from '../../config/firebase'
 import { doc, onSnapshot } from '@firebase/firestore'
 import dynamic from 'next/dynamic'
+import { useRouter } from "next/router"
 
 export default function School({ id }) {
 
-  const Map = dynamic(() => import("../../components/map"), { ssr: false });
+  const router  = useRouter()
+
+  const Map = dynamic(() => import("../../components/map"), { ssr: false })
+
 
   const [ stateSchool, setStateSchool ] = useState({})
   const [ stateLatLon, setStateLatLon ] = useState([])
 
+
   useEffect(()=>{
-
     const unsub = onSnapshot(doc(db, "schools", id), (snapshot)=>{
-
       setStateSchool(snapshot.data())
-
     })
-
     return unsub
-
   },[])
 
-  useEffect(()=>{
 
+  useEffect(()=>{
     const latlon = stateSchool?.geoaddress?.split(":")[1].split("?")[0].split(",")
     setStateLatLon(latlon)
-
-    console.log(stateSchool)
-
   }, [stateSchool])
+
 
   return (
     <Basic>
-      <div className="p-30px">
-        <h1 className="font-bold text-xl">{stateSchool.name}</h1>
-      </div>
       <div className="p-30px flex flex-col-reverse md:flex-row md:space-x-10">
         <div>
-          <table className="table-auto" cellPadding="5">
+          <h1 className="font-bold text-xl mt-5 mb-2 md:mt-0 md:mb-5">{stateSchool.name}</h1>
+          <table className="table-auto w-full">
             <tbody>
               <tr>
-                <td>Type</td>
-                <td>:</td>
+                <td className="py-1">Type</td>
+                <td className="py-1">:</td>
                 <td className="capitalize"> {stateSchool.type}</td>
               </tr>
               {
                 stateSchool?.district!=="" && stateSchool.type=="public" ?
                 <tr>
-                  <td>District</td>
-                  <td>:</td>
+                  <td className="py-1">District</td>
+                  <td className="py-1">:</td>
                   <td className="capitalize"> {stateSchool.district}</td>
                 </tr> : 
                 null
@@ -60,8 +55,8 @@ export default function School({ id }) {
               {
                 stateSchool?.elementary ?
                 <tr>
-                  <td>Elementary</td>
-                  <td>:</td>
+                  <td className="py-1">Elementary</td>
+                  <td className="py-1">:</td>
                   <td className="capitalize"> {stateSchool?.elementaryTuition}</td>
                 </tr> : 
                 null
@@ -69,8 +64,8 @@ export default function School({ id }) {
               {
                 stateSchool?.juniorHighSchool ?
                 <tr>
-                  <td>Junior High School</td>
-                  <td>:</td>
+                  <td className="py-1">Junior High School</td>
+                  <td className="py-1">:</td>
                   <td className="capitalize"> {stateSchool?.juniorHighSchoolTuition}</td>
                 </tr> : 
                 null
@@ -78,8 +73,8 @@ export default function School({ id }) {
               {
                 stateSchool?.seniorHighSchool ?
                 <tr>
-                  <td>Senior High School</td>
-                  <td>:</td>
+                  <td className="py-1">Senior High School</td>
+                  <td className="py-1">:</td>
                   <td className="capitalize"> {stateSchool?.seniorHighSchoolTuition}</td>
                 </tr> : 
                 null
@@ -87,8 +82,8 @@ export default function School({ id }) {
               {
                 stateSchool?.modularLearning || stateSchool?.blendedLearning || stateSchool?.onlineLearning ?
                 <tr>
-                  <td>Strategy</td>
-                  <td>:</td>
+                  <td className="py-1">Strategy</td>
+                  <td className="py-1">:</td>
                   <td className="capitalize">
                     <ul>
                       {
@@ -107,6 +102,10 @@ export default function School({ id }) {
               }
             </tbody>
           </table>
+
+          <button role="button" onClick={e=>router.back()} className="mt-5 w-full p-3 border bg-gray-100 text-center hover:bg-white trasition duration-150 ease-in-out">Go Back</button>
+ 
+
         </div>
         <div className="flex-grow">
           <Map latlon={stateLatLon} school={stateSchool} />
