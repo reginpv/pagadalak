@@ -1,29 +1,17 @@
-//
-// Packages
-//
 import { useContext, useState } from 'react'
-import Cookies from 'js-cookie'
-import router, { useRouter } from 'next/router'
-
-//
-// Helpers
-//
+import { useRouter } from 'next/router'
+import { addDoc, collection } from '@firebase/firestore'
+import db from '../config/firebase'
 import { GlobalContext } from '../context/GlobalState'
-import { HOSTNAME } from '../config/constants'
 
-//
-// data
-//
-import formLoginInputs from '../data/formLoginInputs.json'
 
 export default function FormSchoolAdd({ className }){
 
-  const { editUser } = useContext(GlobalContext)
   const router = useRouter()
 
   const [ stateIsLoading, setStateIsLoading ] = useState(false)
 
-  const handleLogin = e => {
+  const handleAdd = async e => {
 
     e.preventDefault()
 
@@ -32,30 +20,34 @@ export default function FormSchoolAdd({ className }){
     const el = document.querySelector('[data-form-message]')
     el.innerHTML = null
 
-    const username = e.target.username.value
-    const password = e.target.password.value
+    const name = e.target.name.value
 
     let errors = []
 
-    formLoginInputs.forEach(input => {
-
-      let target = document.querySelector(`[name="${input.name}"]`)
-      let mess = document.querySelector(`[name="${input.name}"] + span`)
-
-      if(input.validation.required && (target?.value==undefined || target.value=="")) {
-
-        errors.push(`${input.name}`)
-        target?.classList.add('bg-red-50', 'border-red-500', 'invalid')
-        mess?.classList.remove('hidden')
-
-      } else {
-
-        target?.classList.remove('bg-red-50', 'border-red-500', 'invalid')
-        mess?.classList.add('hidden')
-
+    const input = {
+      type: "text",
+      name: "name",
+      validation: {
+        required: true,
+        'invalid-feedback': "Name is required."
       }
+    }
 
-    })
+    let target = document.querySelector(`[name="${input.name}"]`)
+    let mess = document.querySelector(`[name="${input.name}"] + span`)
+
+    if(input.validation.required && (target?.value==undefined || target.value=="")) {
+
+      errors.push(`${input.name}`)
+      target?.classList.add('bg-red-50', 'border-red-500', 'invalid')
+      mess?.classList.remove('hidden')
+
+    } else {
+
+      target?.classList.remove('bg-red-50', 'border-red-500', 'invalid')
+      mess?.classList.add('hidden')
+
+    }
 
     // Validate
     if(errors.length > 0) {
@@ -63,50 +55,31 @@ export default function FormSchoolAdd({ className }){
       return false
     }
 
-    // Api call
-    let formData = {
-      username,
-      password
+    try {
+      // Api call
+      const collectionRef = collection(db, "schools")
+      const payload = { name }
+      const docRef = await addDoc(collectionRef, payload)
+
+      if(docRef?.id) {
+        router.push(`/admin/school/${docRef.id}`)
+      } else {
+        el.innerHTML = `<div class="text-center bg-red-50 text-red-500 py-3">Error adding to database, please contact administrator</div>`
+
+      }
+
+    } catch(err){
+      console.log("err: ", err)
     }
-    fetch(`${HOSTNAME}/api/users/login`,{
-      method: "POST",
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(formData)
-    })
-      .then(res=>res.json())
-      .then(data=> {
 
-        if(data?.name) {
-
-          // Cookie
-          Cookies.set('_paga', JSON.stringify(data))
-
-          editUser(data)
-
-          router.push("/admin")
-
-        } else {
-          
-          el.innerHTML = `<div class="text-center bg-red-50 text-red-500 py-3">User not found or credentials do not match.</div>`
-          
-        }
-
-        setStateIsLoading(false)
-
-      })
-      .catch(err=>{
-        console.log('err: ', err) 
-        el.innerHTML = `<div class="text-center bg-red-50 text-red-500 py-3">${err}.</div>`
-        setStateIsLoading(false) 
-      })
+    setStateIsLoading(false)
 
   }
 
   return(
-    <form method="post" onSubmit={e=>handleLogin(e)} className={className}>
+    <form method="post" onSubmit={e=>handleAdd(e)} className={className}>
       
+
       <div className="">
         <input className="w-full focus:outline-none p-3 border" type="text" name="name" placeholder="Please enter school name" />
         <span className="text-red-500 text-14px hidden px-1">School name is required</span>

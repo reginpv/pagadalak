@@ -1,26 +1,7 @@
-//
-// Packages
-//
-import { useContext, useEffect } from 'react'
-import { useRouter } from 'next/router'
-import Cookies from 'js-cookie'
-
-//
-// Helpers
-//
-
-
-//
-// Components
-//
 import Basic from "../../../components/templates/basic"
 import FormSchoolAdd from '../../../components/formSchoolAdd'
 
 export default function SchoolAdd() {
-
-  useEffect(()=>{
-    console.log(firebase)
-  },[])
 
   return (
     <Basic
