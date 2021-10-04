@@ -42,10 +42,6 @@ export default function FormSchoolEdit({ className, schoolId,  school }){
   return(
     <form method="POST" onSubmit={e=>handleEdit(e)} className={className}>
 
-      {
-        console.log(stateSchool)
-      }
-
       <div className="">
         <input className="w-full focus:outline-none p-3 border" type="text" name="name" placeholder="Please enter school name" value={stateSchool?.name || ``} onChange={e=>setStateSchool({...stateSchool,name: e.target.value})} />
         <span className="text-red-500 text-14px hidden px-1">School name is required</span>

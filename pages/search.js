@@ -59,9 +59,11 @@ export default function Search({ qs }) {
 
       {
         searchResults.length > 0 ?
-        <div className="px-30px">
-          <hr className="mt-3 mb-10" />
-        </div> :
+        <>
+          <div className="p-30px">
+            <div className="border-t border-b py-4">Found {searchResults.length} results.</div>
+          </div>
+        </> :
         null
       }
 
