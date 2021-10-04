@@ -22,10 +22,13 @@ export default function FormSearch({ className }){
     if(stateTerms.level!=="") constraints.push(where(stateTerms.level, "in", [true, "true"]))
     if(stateTerms.strategy!=="") constraints.push(where(stateTerms.strategy, "==", "true"))
     if(stateTerms.tuition!=="") {
-      console.log(stateTerms.tuition)
-      constraints.push(where("elementaryTuition", "==", stateTerms.tuition))
-      constraints.push(where("juniorHighSchoolTuition", "==", stateTerms.tuition))
-      constraints.push(where("seniorHighSchoolTuition", "==", stateTerms.tuition))
+
+      if(stateTerms.level=="elementary") constraints.push(where("elementaryTuition", "==", stateTerms.tuition))
+
+      if(stateTerms.level=="juniorHighchool") constraints.push(where("juniorHighSchoolTuition", "==", stateTerms.tuition))
+
+      if(stateTerms.level=="seniorHighSchool") constraints.push(where("seniorHighSchoolTuition", "==", stateTerms.tuition))
+
     }
 
     const schoolsRef = collection(db, "schools")
