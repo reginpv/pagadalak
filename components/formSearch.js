@@ -27,8 +27,8 @@ export default function FormSearch({ className }){
     console.log(stateTerms)
 
     if(stateTerms.type!=="") constraints.push(where("type", "==", stateTerms.type))
-    if(stateTerms.level!=="") constraints.push(where(stateTerms.level, "in", [true, "true"]))
-    if(stateTerms.strategy!=="") constraints.push(where(stateTerms.strategy, "==", "true"))
+    if(stateTerms.level!=="") constraints.push(where(stateTerms.level, "==", true))
+    if(stateTerms.strategy!=="") constraints.push(where(stateTerms.strategy, "==", true))
     if(stateTerms.tuition!=="") {
 
       if(stateTerms.level=="elementary") constraints.push(where("elementaryTuition", "==", stateTerms.tuition))

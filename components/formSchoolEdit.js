@@ -100,6 +100,7 @@ export default function FormSchoolEdit({ className, schoolId,  school }){
                   type="checkbox" 
                   checked={stateSchool[`${item.name}`]} 
                   name={item.name} 
+                  value={true}
                   onChange={e=>setStateSchool({...stateSchool, [`${item.name}`]: stateSchool[`${item.name}`] ? false : true})
                   }
                 />
@@ -144,6 +145,7 @@ export default function FormSchoolEdit({ className, schoolId,  school }){
                 type="checkbox" 
                 name={item.name} 
                 checked={stateSchool[`${item.name}`]}
+                value={true}
                 onChange={e=>setStateSchool({...stateSchool, [`${item.name}`]: stateSchool[`${item.name}`] ? false : true})
                   }
               />
