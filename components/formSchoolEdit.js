@@ -4,10 +4,7 @@ import { doc, setDoc, onSnapshot } from '@firebase/firestore'
 import { GlobalContext } from '../context/GlobalState'
 import db from '../config/firebase'
 
-export default function FormSchoolEdit({ className, schoolId,  school }){
-
-  const { editUser } = useContext(GlobalContext)
-  const router = useRouter()
+export default function FormSchoolEdit({ className, schoolId }){
 
   const [ stateIsLoading, setStateIsLoading ] = useState(false)
   const [ stateSchool, setStateSchool ] = useState({})

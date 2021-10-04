@@ -1,26 +1,9 @@
-//
-// Packages
-//
-import { useContext, useEffect, useState } from 'react'
-import { useRouter } from 'next/router'
-import Cookies from 'js-cookie'
 import db from '../../../config/firebase'
-import { doc, addDoc, collection, getDoc, getDocs, onSnapshot } from '@firebase/firestore'
-
-//
-// Helpers
-//
-import { HOSTNAME } from '../../../config/constants'
-
-//
-// Components
-//
+import { collection, getDocs } from '@firebase/firestore'
 import Basic from "../../../components/templates/basic"
 import FormSchoolEdit from '../../../components/formSchoolEdit'
 
 export default function SchoolEdit({ schoolId }) {
-
-  
 
   return (
     <Basic
