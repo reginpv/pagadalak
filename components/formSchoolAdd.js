@@ -37,6 +37,10 @@ export default function FormSchoolAdd({ className }){
     const modularLearning = e.target.modularLearning.checked
     const blendedLearning = e.target.blendedLearning.checked
     const onlineLearning = e.target.onlineLearning.checked
+    const abm = e.target.abm.checked
+    const hums = e.target.hums.checked
+    const stem = e.target.stem.checked
+    const tvl = e.target.tvl.checked
 
     let errors = []
 
@@ -82,7 +86,11 @@ export default function FormSchoolAdd({ className }){
         seniorHighSchoolTuition,
         modularLearning: modularLearning,
         blendedLearning: blendedLearning,
-        onlineLearning: onlineLearning
+        onlineLearning: onlineLearning,
+        abm: abm,
+        hums: hums,
+        stem: stem,
+        tvl: tvl
       }
       console.log(payload)
       const docRef = await addDoc(collectionRef, payload)
@@ -111,23 +119,25 @@ export default function FormSchoolAdd({ className }){
         <span className="text-red-500 text-14px hidden px-1">School name is required</span>
       </div>
 
-      <div className="">
-        <select className="w-full focus:outline-none p-3 border" name="type" defaultValue="">
-          <option value="">Please select type</option>
-          <option value="public">Public</option>
-          <option value="private">Private</option>
-        </select>
-        <span className="text-red-500 text-14px hidden px-1">Type name is required</span>
-      </div>
+      <div className="grid md:grid-cols-2 gap-3">
+        <div className="">
+          <select className="w-full focus:outline-none p-3 border" name="type" defaultValue="">
+            <option value="">Please select type</option>
+            <option value="public">Public</option>
+            <option value="private">Private</option>
+          </select>
+          <span className="text-red-500 text-14px hidden px-1">Type name is required</span>
+        </div>
 
-      <div className="">
-        <select className="w-full focus:outline-none p-3 border" name="district" defaultValue="">
-          <option value="">Please select district</option>
-          <option value="Central District">Central District</option>
-          <option value="East District">East District</option>
-          <option value="West Disctrict">West District</option>
-        </select>
-        <span className="text-red-500 text-14px hidden px-1">District is required</span>
+        <div className="">
+          <select className="w-full focus:outline-none p-3 border" name="district" defaultValue="">
+            <option value="">Please select district</option>
+            <option value="Central District">Central District</option>
+            <option value="East District">East District</option>
+            <option value="West Disctrict">West District</option>
+          </select>
+          <span className="text-red-500 text-14px hidden px-1">District is required</span>
+        </div>
       </div>
 
       <div className="">
@@ -145,11 +155,11 @@ export default function FormSchoolAdd({ className }){
             },
             {
               name: "juniorHighSchool",
-              label: "Junior high-school"
+              label: "Junior HS"
             },
             {
               name: "seniorHighSchool",
-              label: "Senior high-school"
+              label: "Senior HS"
             }
           ].map((item,i)=>(
             <div key={i} className="py-2 flex items-center justify-between">
@@ -171,6 +181,37 @@ export default function FormSchoolAdd({ className }){
           ))
         }
         
+      </div>
+
+      <div className="">
+        <h3 className="font-bold">Strands (for senior high school only)</h3>
+        {
+          [
+            {
+              name: "abm",
+              label: "ABM"
+            },
+            {
+              name: "hums",
+              label: "HUMS"
+            },
+            {
+              name: "stem",
+              label: "STEM"
+            },
+            {
+              name: "tvl",
+              label: "TVL"
+            }
+          ].map((item,i)=>(
+            <div key={i} className="py-2 flex items-center justify-between">
+              <div className="whitespace-nowrap">
+                <input id={item.name} type="checkbox" name={item.name} value={true} />
+                <label htmlFor={item.name} className="capitalize"> <span className="truncate">{item.label}</span></label>
+              </div>
+            </div>
+          ))
+        }
       </div>
 
       <div className="">

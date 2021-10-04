@@ -116,6 +116,45 @@ export default function FormSchoolEdit({ className, schoolId }){
       </div>
 
       <div className="">
+        <h3 className="font-bold">Strands (for senior high school only)</h3>
+        {
+          [
+            {
+              name: "abm",
+              label: "ABM"
+            },
+            {
+              name: "hums",
+              label: "HUMS"
+            },
+            {
+              name: "stem",
+              label: "STEM"
+            },
+            {
+              name: "tvl",
+              label: "TVL"
+            }
+          ].map((item,i)=>(
+            <div key={i} className="py-2 flex items-center justify-between">
+              <div className="whitespace-nowrap">
+                <input 
+                  id={item.name} 
+                  type="checkbox" 
+                  name={item.name} 
+                  checked={stateSchool[`${item.name}`]}
+                  value={true}
+                  onChange={e=>setStateSchool({...stateSchool, [`${item.name}`]: stateSchool[`${item.name}`] ? false : true})
+                  }
+                />
+                <label htmlFor={item.name} className="capitalize"> <span className="truncate">{item.label}</span></label>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+
+      <div className="">
         <h3 className="font-bold">Please select strategy</h3>
         {
           [
