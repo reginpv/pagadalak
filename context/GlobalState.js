@@ -8,6 +8,7 @@ const initialState = {
   user: {
     name: "",
   },
+  searchResults: []
 }
 
 // Gloval context
@@ -25,11 +26,20 @@ export const GlobalProvider = ({ children }) => {
     })
   }
 
+  function editSearchResults(results) {
+    dispatch({
+      type: "EDIT_SEARCH_RESULTS",
+      payload: results
+    })
+  }
+
   return (
     <GlobalContext.Provider
       value={{
         user: state.user,
         editUser,
+        searchResults: state.searchResults,
+        editSearchResults
       }}
     >
       {children}
