@@ -20,5 +20,5 @@ input:-webkit-autofill:active{
 
 .leaflet-container {
   width: 100%; 
-  height: 50vh;
+  height: 100%;
 }

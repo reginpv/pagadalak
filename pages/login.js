@@ -27,7 +27,7 @@ export default function Login() {
     <Basic
       classMain="flex items-center justify-center mb-10"
     >
-      <div className="p-30px w-full max-w-screen-sm">
+      <div className="px-30px py-3 md:py-30px w-full max-w-screen-sm">
         <h1 className="mb-1 text-center text-24px font-bold">Admin Login</h1>
         <p className="mb-5 text-center">For admin use only.</p>
         <FormLogin className="grid gap-5" />

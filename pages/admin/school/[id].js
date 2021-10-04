@@ -10,7 +10,7 @@ export default function SchoolEdit({ schoolId }) {
       classMain="flex items-center justify-center mb-10"
       auth={true}
     >
-      <div className="p-30px max-w-screen-sm mx-auto w-full">
+      <div className="px-30px py-3 md:py-30px max-w-screen-sm mx-auto w-full">
         <h1 className="mb-5 text-center text-24px font-bold">Edit school</h1>
         <FormSchoolEdit schoolId={schoolId} className="grid gap-3" />
       </div>

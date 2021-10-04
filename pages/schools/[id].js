@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react"
-import Link from 'next/link'
 import Basic from "../../components/templates/basic"
 import db from '../../config/firebase'
 import { doc, onSnapshot } from '@firebase/firestore'
@@ -32,8 +31,10 @@ export default function School({ id }) {
 
 
   return (
-    <Basic>
-      <div className="p-30px flex flex-col-reverse md:flex-row md:space-x-10">
+    <Basic
+      classMain="flex w-full h-full"
+    >
+      <div className="px-30px py-3 md:py-30px flex-grow flex flex-col-reverse md:flex-row md:space-x-10">
         <div>
           <h1 className="font-bold text-xl mt-5 mb-2 md:mt-0 md:mb-5">{stateSchool.name}</h1>
           <table className="table-auto w-full">

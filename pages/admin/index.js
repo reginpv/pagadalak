@@ -33,13 +33,17 @@ export default function Admin({ schools }) {
     <Basic
       auth={true}
     >
-      <div className="p-30px">
+      <div className="px-30px py-3 md:py-30px">
         <div className="py-3">
           <Link href="/admin/school/add">
             <a className="p-3 border">Add new school</a>
           </Link>
         </div>
+
         <hr className="my-10" />
+
+        <p>Found {stateSchools.length} schools in our record.</p>
+
         <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-10 my-5">
           {
             stateSchools.map(school=>(
