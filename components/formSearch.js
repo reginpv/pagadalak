@@ -13,11 +13,16 @@ export default function FormSearch({ className }){
 
   useEffect(async ()=>{
 
-    console.log(stateTerms)
-
     let results = []
+    let constraints = []
+
+    if(stateTerms.type!=="") constraints.push(where("type", "==", stateTerms.type))
+    if(stateTerms.level!=="") constraints.push(where(stateTerms.level, "in", [true, "true"]))
+    if(stateTerms.strategy!=="") constraints.push(where(stateTerms.strategy, "in", [true, "true"]))
+
     const schoolsRef = collection(db, "schools")
-    const q = query(schoolsRef, where("type", "==", stateTerms.type))
+
+    const q = query(schoolsRef, ...constraints)
 
     const querySnapshot = await getDocs(q)
 
