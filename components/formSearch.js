@@ -9,12 +9,15 @@ export default function FormSearch({ className }){
   const { editSearchResults } = useContext(GlobalContext)
 
   const [ stateType, setStateType ] = useState("")
+  const [ stateTerms, setStateTerms] = useState({type: "", level: "", ["strategy"]: "", ["tuition"]: ""})
 
   useEffect(async ()=>{
 
+    console.log(stateTerms)
+
     let results = []
     const schoolsRef = collection(db, "schools")
-    const q = query(schoolsRef, where("type", "==", stateType))
+    const q = query(schoolsRef, where("type", "==", stateTerms.type))
 
     const querySnapshot = await getDocs(q)
 
@@ -32,7 +35,7 @@ export default function FormSearch({ className }){
 
     editSearchResults(results)
 
-  },[ stateType ])
+  },[ stateTerms ])
 
 
   return(
@@ -41,7 +44,12 @@ export default function FormSearch({ className }){
         formSearchInputs.map(input=>(
           <div key={input.name} className="p-3 border font-bold">
             <label>{input.label}</label>
-            <select name={input.name} defaultValue={stateType} onChange={e=>setStateType(e.target.value)} className={`focus:outline-none w-full`}>
+            <select 
+              name={input.name} 
+              defaultValue={stateTerms[`${input.name}`]} 
+              onChange={e=>setStateTerms({...stateTerms, [`${input.name}`]:e.target.value})} 
+              className={`focus:outline-none w-full`}
+            >
               <option value="">{`Select ${input.label}`}</option>
               {
                 input.options.map(option=>(

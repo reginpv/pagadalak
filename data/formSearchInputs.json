@@ -29,11 +29,11 @@
         "label": "Elementary"
       },
       {
-        "value": "junior-high-school",
+        "value": "juniorHighSchool",
         "label": "Junior High School"
       },
       {
-        "value": "senior-high-school",
+        "value": "seniorHighSchool",
         "label": "Senior High School"
       }
     ],
@@ -44,20 +44,20 @@
     }
   },
   {
-    "name": "learning-strategy",
+    "name": "strategy",
     "label": "Learning Strategy",
     "type": "select",
     "options": [
       {
-        "value": "modular-learning",
+        "value": "modularLearning",
         "label": "Modular Learning"
       },
       {
-        "value": "online-learning",
+        "value": "onlineLearning",
         "label": "Online Learning"
       },
       {
-        "value": "blended-learning",
+        "value": "blendedLearning",
         "label": "Blended Learning"
       }
     ],
@@ -68,7 +68,7 @@
     }
   },
   {
-    "name": "tuition-range",
+    "name": "tuition",
     "label": "Tuition Range",
     "type": "select",
     "options": [
