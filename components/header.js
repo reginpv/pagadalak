@@ -46,7 +46,7 @@ export default function Header(){
               isLoggedIn() ?
               <>
                 <span className="hidden md:inline-block">Welcome {user.name},&nbsp;</span> 
-                <a href="#" onClick={e=>handeLogout()}>Logout</a>
+                <button role="button" onClick={e=>handeLogout()}>Logout</button>
               </> : 
               <Link href="/login">
                 <a>Login</a>

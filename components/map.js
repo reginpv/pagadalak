@@ -1,6 +1,4 @@
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet'
-import markerIconPng from "leaflet/dist/images/marker-icon.png"
-import {Icon} from 'leaflet'
 
 export default function Map({ latlon = [0, 0], school }) {
   return(

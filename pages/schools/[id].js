@@ -30,6 +30,7 @@ export default function School({ id }) {
     const latlon = stateSchool?.geoaddress?.split(":")[1].split("?")[0].split(",")
     setStateLatLon(latlon)
 
+    console.log(stateSchool)
 
   }, [stateSchool])
 
@@ -40,16 +41,72 @@ export default function School({ id }) {
       </div>
       <div className="p-30px flex flex-col-reverse md:flex-row md:space-x-10">
         <div>
-          <div>
-            {
-              [
-                "type",
-                "district"
-              ].map((item,i)=>(
-                stateSchool[item] ? <div className="capitalize">{item}: {stateSchool[item]}</div> : null
-              ))
-            }
-          </div>
+          <table className="table-auto" cellPadding="5">
+            <tbody>
+              <tr>
+                <td>Type</td>
+                <td>:</td>
+                <td className="capitalize"> {stateSchool.type}</td>
+              </tr>
+              {
+                stateSchool?.district!=="" && stateSchool.type=="public" ?
+                <tr>
+                  <td>District</td>
+                  <td>:</td>
+                  <td className="capitalize"> {stateSchool.district}</td>
+                </tr> : 
+                null
+              }
+              {
+                stateSchool?.elementary ?
+                <tr>
+                  <td>Elementary</td>
+                  <td>:</td>
+                  <td className="capitalize"> {stateSchool?.elementaryTuition}</td>
+                </tr> : 
+                null
+              }
+              {
+                stateSchool?.juniorHighSchool ?
+                <tr>
+                  <td>Junior High School</td>
+                  <td>:</td>
+                  <td className="capitalize"> {stateSchool?.juniorHighSchoolTuition}</td>
+                </tr> : 
+                null
+              }
+              {
+                stateSchool?.seniorHighSchool ?
+                <tr>
+                  <td>Senior High School</td>
+                  <td>:</td>
+                  <td className="capitalize"> {stateSchool?.seniorHighSchoolTuition}</td>
+                </tr> : 
+                null
+              }
+              {
+                stateSchool?.modularLearning || stateSchool?.blendedLearning || stateSchool?.onlineLearning ?
+                <tr>
+                  <td>Strategy</td>
+                  <td>:</td>
+                  <td className="capitalize">
+                    <ul>
+                      {
+                        stateSchool?.modularLearning ? <li>Modular Leaning</li> : null
+                      }
+                      {
+                        stateSchool?.blendedLearning ? <li>Blended Leaning</li> : null
+                      }
+                      {
+                        stateSchool?.onlineLearning ? <li>Online Leaning</li> : null
+                      }
+                    </ul>
+                  </td>
+                </tr> : 
+                null
+              }
+            </tbody>
+          </table>
         </div>
         <div className="flex-grow">
           <Map latlon={stateLatLon} school={stateSchool} />
