@@ -23,7 +23,10 @@ export default function FormSearch({ className }){
       // doc.data() is never undefined for query doc snapshots
       // console.log(doc.data());
 
-      results.push(doc.data())
+      results.push({
+        ...doc.data(),
+        id: doc.id
+      })
       
     })
 
