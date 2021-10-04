@@ -40,7 +40,7 @@ export default function Admin({ schools }) {
           </Link>
         </div>
         <hr className="my-10" />
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-10 my-5">
+        <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-10 my-5">
           {
             stateSchools.map(school=>(
               <div key={school.id} className="border bg-gray-50 grid grid-flow-row">
@@ -53,11 +53,15 @@ export default function Admin({ schools }) {
                         <td>:</td>
                         <td className="capitalize">{school.type}</td>
                       </tr>
-                      <tr>
-                        <td>District</td>
-                        <td>:</td>
-                        <td className="capitalize">{school.district}</td>
-                      </tr>
+                      {
+                        school?.district!=="" && school.type=="public" ?
+                        <tr>
+                          <td>District</td>
+                          <td>:</td>
+                          <td className="capitalize">{school.district}</td>
+                        </tr> :
+                        null
+                      }
                     </tbody>
                   </table>
                 </div>

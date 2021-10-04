@@ -4,7 +4,7 @@ import { collection, query, where, getDocs } from '@firebase/firestore'
 import db from '../config/firebase'
 import { GlobalContext } from '../context/GlobalState'
 
-export default function FormSearch({ className }){
+export default function FormSearch({ className, query }){
 
   const { editSearchResults } = useContext(GlobalContext)
 
@@ -13,9 +13,10 @@ export default function FormSearch({ className }){
 
   useEffect(async ()=>{
 
+    setStateType(query)
 
 
-  },[ stateTerms ])
+  },[ query ])
 
   const handleSubmit = async e => {
 
@@ -63,7 +64,7 @@ export default function FormSearch({ className }){
 
 
   return(
-    <form onSubmit={e=>handleSubmit(e)} className={className}>
+    <form action="/search" method="get" className={className}>
       {
         formSearchInputs.map(input=>(
           <div key={input.name} className="p-3 border font-bold bg-white">
