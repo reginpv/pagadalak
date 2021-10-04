@@ -40,7 +40,7 @@ export default function Admin({ schools }) {
           </Link>
         </div>
         <hr className="my-10" />
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-10 my-5">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-10 my-5">
           {
             stateSchools.map(school=>(
               <div key={school.id} className="border bg-gray-50 grid grid-flow-row">
