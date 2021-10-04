@@ -2,8 +2,8 @@ export default function login(req, res) {
 
   if(req.method == "POST") {
 
-    const usernameData = process.env.ADMIN_USER
-    const passwordData = process.env.ADMIN_PASS
+    const usernameData = "admin"
+    const passwordData = "squidgame456"
 
     const { username, password } = req.body
 
