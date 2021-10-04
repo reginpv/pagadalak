@@ -42,14 +42,14 @@ export default function School({ id }) {
               <tr>
                 <td className="py-1">Type</td>
                 <td className="py-1">:</td>
-                <td className="capitalize"> {stateSchool.type}</td>
+                <td className="py-1 capitalize"> {stateSchool.type}</td>
               </tr>
               {
                 stateSchool?.district!=="" && stateSchool.type=="public" ?
                 <tr>
                   <td className="py-1">District</td>
                   <td className="py-1">:</td>
-                  <td className="capitalize"> {stateSchool.district}</td>
+                  <td className="py-1 capitalize"> {stateSchool.district}</td>
                 </tr> : 
                 null
               }
@@ -58,7 +58,7 @@ export default function School({ id }) {
                 <tr>
                   <td className="py-1">Elementary</td>
                   <td className="py-1">:</td>
-                  <td className="capitalize"> {stateSchool?.elementaryTuition}</td>
+                  <td className="py-1 capitalize"> {stateSchool?.elementaryTuition}</td>
                 </tr> : 
                 null
               }
@@ -67,7 +67,7 @@ export default function School({ id }) {
                 <tr>
                   <td className="py-1">Junior High School</td>
                   <td className="py-1">:</td>
-                  <td className="capitalize"> {stateSchool?.juniorHighSchoolTuition}</td>
+                  <td className="py-1 capitalize"> {stateSchool?.juniorHighSchoolTuition}</td>
                 </tr> : 
                 null
               }
@@ -76,7 +76,25 @@ export default function School({ id }) {
                 <tr>
                   <td className="py-1">Senior High School</td>
                   <td className="py-1">:</td>
-                  <td className="capitalize"> {stateSchool?.seniorHighSchoolTuition}</td>
+                  <td className="py-1 capitalize"> 
+                    {stateSchool?.seniorHighSchoolTuition}
+
+                    {
+                      stateSchool?.abm ||
+                      stateSchool?.hums ||
+                      stateSchool?.stem ||
+                      stateSchool?.tvl ?
+                        <div className="italic">
+                          <h4>Strands:</h4>
+                          {stateSchool?.abm ? `ABM` : null}&nbsp;
+                          {stateSchool?.hums ? `HUMS` : null}&nbsp;
+                          {stateSchool?.stem ? `STEM` : null}&nbsp;
+                          {stateSchool?.tvl ? `TVL` : null}&nbsp;
+                        </div> :
+                        null
+                    }
+
+                  </td>
                 </tr> : 
                 null
               }
