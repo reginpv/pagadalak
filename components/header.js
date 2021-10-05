@@ -30,7 +30,7 @@ export default function Header(){
     <header className="px-30px py-3 md:py-30px flex justify-between items-center sticky top-0 bg-white bg-opacity-90">
       <div className="font-bold text-40px text-gray-700 uppercase flex items-center">
         <Link href="/"><a><Image src="/images/logo.png" width="90" height="90" alt="Pagadalak" /></a></Link>
-        <h2 className="hidden md:block">Pagadalak.com</h2>
+        <h2 className="hidden text-2xl lg:text-3xl lg:block truncate">Camiling Educational Institution Finder</h2>
       </div>
       <div className="">
         <ul className="flex space-x-3 md:space-x-10">
@@ -43,7 +43,7 @@ export default function Header(){
             </li> : 
             null
           }
-          <li>
+          <li className="truncate">
             {
               isLoggedIn() ?
               <>
