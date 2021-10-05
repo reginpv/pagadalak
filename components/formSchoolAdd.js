@@ -38,9 +38,10 @@ export default function FormSchoolAdd({ className }){
     const blendedLearning = e.target.blendedLearning.checked
     const onlineLearning = e.target.onlineLearning.checked
     const abm = e.target.abm.checked
-    const hums = e.target.hums.checked
+    const humss = e.target.humss.checked
     const stem = e.target.stem.checked
     const tvl = e.target.tvl.checked
+    const gas = e.target.gas.checked
 
     let errors = []
 
@@ -88,9 +89,10 @@ export default function FormSchoolAdd({ className }){
         blendedLearning: blendedLearning,
         onlineLearning: onlineLearning,
         abm: abm,
-        hums: hums,
+        humss: humss,
         stem: stem,
-        tvl: tvl
+        tvl: tvl,
+        gas: gas
       }
       console.log(payload)
       const docRef = await addDoc(collectionRef, payload)
@@ -192,8 +194,8 @@ export default function FormSchoolAdd({ className }){
               label: "ABM"
             },
             {
-              name: "hums",
-              label: "HUMS"
+              name: "humss",
+              label: "HUMSS"
             },
             {
               name: "stem",
@@ -202,6 +204,10 @@ export default function FormSchoolAdd({ className }){
             {
               name: "tvl",
               label: "TVL"
+            },
+            {
+              name: "gas",
+              label: "GAS"
             }
           ].map((item,i)=>(
             <div key={i} className="py-2 flex items-center justify-between">

@@ -73,7 +73,11 @@ export default function Admin({ schools }) {
                   <Link href={`/admin/school/${school.id}`}>
                     <a className="p-3 bg-gray-300">Edit</a>
                   </Link>
-                  <button role="button" className="p-3 bg-gray-300 border-l" onClick={()=>deleteDocument(school.id)}>Delete</button>
+                  <button role="button" className="p-3 bg-gray-300 border-l" onClick={()=>{
+                    if(confirm(`Are you sure you want to delete ${school.name}?`)){
+                      deleteDocument(school.id)
+                    }
+                  }}>Delete</button>
                 </div>
               </div>
             ))

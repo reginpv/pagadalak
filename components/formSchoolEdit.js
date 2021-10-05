@@ -124,8 +124,8 @@ export default function FormSchoolEdit({ className, schoolId }){
               label: "ABM"
             },
             {
-              name: "hums",
-              label: "HUMS"
+              name: "humss",
+              label: "HUMSS"
             },
             {
               name: "stem",
@@ -134,6 +134,10 @@ export default function FormSchoolEdit({ className, schoolId }){
             {
               name: "tvl",
               label: "TVL"
+            },
+            {
+              name: "gas",
+              label: "GAS"
             }
           ].map((item,i)=>(
             <div key={i} className="py-2 flex items-center justify-between">
