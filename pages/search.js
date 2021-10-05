@@ -16,7 +16,7 @@ export default function Search({ qs }) {
     let constraints = []
   
     if(qs.type!=="") constraints.push(where("type", "==", qs.type))
-    if(qs.level!=="") constraints.push(where(qs.level, "==", true))
+    if(qs.level!=="") constraints.push(where(qs.level, "in", [true, "true"]))
     if(qs.strategy!=="") constraints.push(where(qs.strategy, "==", true))
     if(qs.tuition!=="") {
   

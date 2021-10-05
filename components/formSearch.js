@@ -1,6 +1,5 @@
-import { useEffect, useState, useContext } from 'react'
+import { useState } from 'react'
 import formSearchInputs from '../data/formSearchInputs.json'
-import { GlobalContext } from '../context/GlobalState'
 
 export default function FormSearch({ className }){
 
