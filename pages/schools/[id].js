@@ -106,13 +106,13 @@ export default function School({ id }) {
                   <td className="capitalize">
                     <ul>
                       {
-                        stateSchool?.modularLearning ? <li>Modular Leaning</li> : null
+                        stateSchool?.modularLearning ? <li>Modular Learning</li> : null
                       }
                       {
-                        stateSchool?.blendedLearning ? <li>Blended Leaning</li> : null
+                        stateSchool?.blendedLearning ? <li>Blended Learning</li> : null
                       }
                       {
-                        stateSchool?.onlineLearning ? <li>Online Leaning</li> : null
+                        stateSchool?.onlineLearning ? <li>Online Learning</li> : null
                       }
                     </ul>
                   </td>

@@ -125,13 +125,13 @@ export default function Search({ qs }) {
                         <td className="capitalize">
                           <ul>
                             {
-                              school?.modularLearning ? <li>Modular Leaning</li> : null
+                              school?.modularLearning ? <li>Modular Learning</li> : null
                             }
                             {
-                              school?.blendedLearning ? <li>Blended Leaning</li> : null
+                              school?.blendedLearning ? <li>Blended Learning</li> : null
                             }
                             {
-                              school?.onlineLearning ? <li>Online Leaning</li> : null
+                              school?.onlineLearning ? <li>Online Learning</li> : null
                             }
                           </ul>
                         </td>
