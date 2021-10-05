@@ -5,6 +5,7 @@ import { useContext } from 'react'
 import Link from 'next/link'
 import Cookies from 'js-cookie'
 import { useRouter } from 'next/router'
+import Image from 'next/image'
 
 //
 // Helpers
@@ -26,9 +27,9 @@ export default function Header(){
   }
 
   return(
-    <header className="px-30px py-3 md:py-30px flex justify-between items-center sticky top-0 bg-white">
+    <header className="px-30px py-3 md:py-30px flex justify-between items-center sticky top-0 bg-white bg-opacity-90">
       <div className="font-bold text-40px text-gray-700 uppercase">
-        <Link href="/"><a>Logo</a></Link>
+        <Link href="/"><a><Image src="/images/logo.png" width="90" height="90" alt="Pagadalak" /></a></Link>
       </div>
       <div className="">
         <ul className="flex space-x-3 md:space-x-10">

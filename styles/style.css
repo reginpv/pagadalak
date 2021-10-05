@@ -10,6 +10,13 @@ select::-ms-expand {
   display: none;
 }
 
+/* Template */
+.template {
+  background: url(/images/bg.png) center bottom/cover no-repeat;
+  background-attachment: fixed;
+}
+
+
 /* Change the white to any color */
 input:-webkit-autofill,
 input:-webkit-autofill:hover, 
