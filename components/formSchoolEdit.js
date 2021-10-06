@@ -29,7 +29,10 @@ export default function FormSchoolEdit({ className, schoolId }){
     setStateIsLoading(true)
 
     const docRef = doc(db, "schools", schoolId)
-    const docSnap = await setDoc(docRef, stateSchool)
+    const docSnap = await setDoc(docRef, {
+      ...stateSchool,
+      tuitionRange: [stateSchool?.elementaryTuition, stateSchool?.juniorHighSchoolTuition, stateSchool?.seniorHighSchoolTuition]
+    })
 
     setStateIsLoading(false)
 

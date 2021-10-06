@@ -16,7 +16,7 @@ export default function Search({ qs }) {
     let constraints = []
   
     if(qs.type!=="") constraints.push(where("type", "==", qs.type))
-    if(qs.level!=="") constraints.push(where(qs.level, "in", [true, "true"]))
+    if(qs.level!=="") constraints.push(where(qs.level, "==", true))
     if(qs.strategy!=="") constraints.push(where(qs.strategy, "==", true))
     if(qs.district!=="" && qs.type=="public") constraints.push(where("district", "==", qs.district))
     if(qs.tuition!=="") {
@@ -25,12 +25,8 @@ export default function Search({ qs }) {
         constraints.push(where(`${qs.level}Tuition`, "==", qs.tuition))
 
       } else {
-        console.log('lll',qs.tuition)
-        constraints.push(where("elementaryTuition", "==", qs.tuition))
-    
-        //constraints.push(where("juniorHighSchoolTuition", "==", qs.tuition))
-    
-        //constraints.push(where("seniorHighSchoolTuition", "==", qs.tuition))
+
+        constraints.push(where("tuitionRange", "array-contains", qs.tuition))
   
      } 
     }

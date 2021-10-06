@@ -92,7 +92,8 @@ export default function FormSchoolAdd({ className }){
         humss: humss,
         stem: stem,
         tvl: tvl,
-        gas: gas
+        gas: gas,
+        tuitionRange: [elementaryTuition, juniorHighSchoolTuition, seniorHighSchoolTuition]
       }
       console.log(payload)
       const docRef = await addDoc(collectionRef, payload)
