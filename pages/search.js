@@ -5,6 +5,7 @@ import Basic from "../components/templates/basic"
 import { GlobalContext } from '../context/GlobalState'
 import { collection, query, where, getDocs } from '@firebase/firestore'
 import db from '../config/firebase'
+import _ from 'lodash'
 
 export default function Search({ qs }) {
 
@@ -73,7 +74,7 @@ export default function Search({ qs }) {
       <div className="px-30px py-3 md:py-30px grid md:grid-cols-2 lg:grid-cols-4 gap-2 md:gap-5">
         {
           searchResults.length > 0 ?
-          searchResults.map(school=>(
+          _.orderBy(searchResults,['name'],['asc']).map(school=>(
             <div key={school.id} className="border p-3 bg-gray-50 flex flex-col justify-between space-y-5">
               <div>
                 <h3 className="font-bold mb-3">{school.name}</h3>

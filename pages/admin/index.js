@@ -3,6 +3,7 @@ import Link from 'next/link'
 import { collection, doc, onSnapshot, deleteDoc } from '@firebase/firestore'
 import db from '../../config/firebase'
 import Basic from "../../components/templates/basic"
+import _ from 'lodash'
 
 
 export default function Admin({ schools }) {
@@ -46,7 +47,7 @@ export default function Admin({ schools }) {
 
         <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-10 my-5">
           {
-            stateSchools.map(school=>(
+            _.orderBy(stateSchools,['name'],['asc']).map(school=>(
               <div key={school.id} className="border bg-gray-50 flex flex-col justify-between">
                 <div className="p-3">
                   <h3 className="font-bold">{school.name}</h3>
