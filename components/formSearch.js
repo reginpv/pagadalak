@@ -5,17 +5,30 @@ export default function FormSearch({ className, queryString }){
 
   const [ stateTerms, setStateTerms] = useState(queryString || {})
 
+  useState(()=>{
+
+    () => {
+      if(stateTerms.type!=="public"){
+        setStateTerms({
+          ...stateTerms,
+          district: ""
+        })
+      }
+    }
+
+  },[stateTerms])
+
   return(
     <form action="/search" method="get" className={className}>
       {
         formSearchInputs.map(input=>(
-          <div key={input.name} className="p-3 border font-bold bg-white">
-            <label>{input.label}</label>
+          <div key={input.name} className={`p-3 border font-bold bg-white ${(input.name==`district` && stateTerms.type!=='public')?`hidden`:``}`}>
+            <label className="block">{input.label}</label>
             <select 
               name={input.name} 
               defaultValue={stateTerms[`${input.name}`]} 
               onChange={e=>setStateTerms({...stateTerms, [`${input.name}`]:e.target.value})} 
-              className={`focus:outline-none w-full`}
+              className={`focus:outline-none w-full}`}
             >
               <option value="">{`Select ${input.label}`}</option>
               {

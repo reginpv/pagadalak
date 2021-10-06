@@ -20,6 +20,30 @@
     }
   },
   {
+    "name": "district",
+    "label": "Location",
+    "type": "select",
+    "options": [
+      {
+        "value": "Central District",
+        "label": "Central District"
+      },
+      {
+        "value": "East District",
+        "label": "East District"
+      },
+      {
+        "value": "West District",
+        "label": "West District"
+      }
+    ],
+    "validation": {
+      "required": false,
+      "valid-feedback": "",
+      "invalid-feedback": "required."
+    }
+  },
+  {
     "name": "level",
     "label": "Education Level",
     "type": "select",

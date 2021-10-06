@@ -18,14 +18,20 @@ export default function Search({ qs }) {
     if(qs.type!=="") constraints.push(where("type", "==", qs.type))
     if(qs.level!=="") constraints.push(where(qs.level, "in", [true, "true"]))
     if(qs.strategy!=="") constraints.push(where(qs.strategy, "==", true))
+    if(qs.district!=="" && qs.type=="public") constraints.push(where("district", "==", qs.district))
     if(qs.tuition!=="") {
+      if(qs.level!=="") {
+
+        constraints.push(where(qs.level, "==", qs.tuition))
+
+      } else {
+        if(qs.level=="elementary") constraints.push(where("elementaryTuition", "==", qs.tuition))
+    
+        if(qs.level=="juniorHighchool") constraints.push(where("juniorHighSchoolTuition", "==", qs.tuition))
+    
+        if(qs.level=="seniorHighSchool") constraints.push(where("seniorHighSchoolTuition", "==", qs.tuition))
   
-      if(qs.level=="elementary") constraints.push(where("elementaryTuition", "==", qs.tuition))
-  
-      if(qs.level=="juniorHighchool") constraints.push(where("juniorHighSchoolTuition", "==", qs.tuition))
-  
-      if(qs.level=="seniorHighSchool") constraints.push(where("seniorHighSchoolTuition", "==", qs.tuition))
-  
+     } 
     }
   
     const schoolsRef = collection(db, "schools")
@@ -155,6 +161,8 @@ export default function Search({ qs }) {
 }
 
 export async function getServerSideProps({ query }) {
+
+  console.log(query)
 
   return {
     props: {

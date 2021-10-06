@@ -40,15 +40,15 @@
     },
     "options": [
       {
-        "value": "central district",
+        "value": "Central District",
         "label": "Central District"
       },
       {
-        "value": "west district",
+        "value": "West District",
         "label": "West District"
       },
       {
-        "value": "east district",
+        "value": "East District",
         "label": "East District"
       }
     ]
