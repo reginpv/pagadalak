@@ -98,7 +98,7 @@ export default function Search({ qs }) {
                       <tr>
                         <td className="py-1">Elementary</td>
                         <td className="py-1">&nbsp;:&nbsp;</td>
-                        <td className="capitalize"> {school?.elementaryTuition}</td>
+                        <td className="capitalize"> {school?.elementaryTuition == "Free" ? `Free tuition` : school?.elementaryTuition }</td>
                       </tr> : 
                       null
                     }
@@ -107,7 +107,7 @@ export default function Search({ qs }) {
                       <tr>
                         <td className="py-1">JHS</td>
                         <td className="py-1">&nbsp;:&nbsp;</td>
-                        <td className="capitalize"> {school?.juniorHighSchoolTuition}</td>
+                        <td className="capitalize"> {school?.juniorHighSchoolTuition == "Free" ? `Free tuition` : school?.juniorHighSchoolTuition}</td>
                       </tr> : 
                       null
                     }
@@ -116,7 +116,7 @@ export default function Search({ qs }) {
                       <tr>
                         <td className="py-1">SHS</td>
                         <td className="py-1">&nbsp;:&nbsp;</td>
-                        <td className="capitalize"> {school?.seniorHighSchoolTuition}</td>
+                        <td className="capitalize"> {school?.seniorHighSchoolTuition == "Free" ? `Free tuition` : school?.seniorHighSchoolTuition}</td>
                       </tr> : 
                       null
                     }

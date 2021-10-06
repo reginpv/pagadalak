@@ -58,7 +58,7 @@ export default function School({ id }) {
                 <tr>
                   <td className="py-1">Elementary</td>
                   <td className="py-1">:</td>
-                  <td className="py-1 capitalize"> {stateSchool?.elementaryTuition}</td>
+                  <td className="py-1 capitalize"> {stateSchool?.elementaryTuition == "Free" ? "Free tuition" : stateSchool?.elementaryTuition}</td>
                 </tr> : 
                 null
               }
@@ -67,7 +67,7 @@ export default function School({ id }) {
                 <tr>
                   <td className="py-1">Junior High School</td>
                   <td className="py-1">:</td>
-                  <td className="py-1 capitalize"> {stateSchool?.juniorHighSchoolTuition}</td>
+                  <td className="py-1 capitalize"> {stateSchool?.juniorHighSchoolTuition == "Free" ? "Free tuition" : stateSchool?.juniorHighSchoolTuition}</td>
                 </tr> : 
                 null
               }
@@ -77,7 +77,7 @@ export default function School({ id }) {
                   <td className="py-1">Senior High School</td>
                   <td className="py-1">:</td>
                   <td className="py-1 capitalize"> 
-                    {stateSchool?.seniorHighSchoolTuition}
+                    {stateSchool?.seniorHighSchoolTuition == "Free" ? "Free tuition" : stateSchool?.seniorHighSchoolTuition}
 
                     {
                       stateSchool?.abm ||
