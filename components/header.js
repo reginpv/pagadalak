@@ -29,8 +29,8 @@ export default function Header(){
   return(
     <header className="px-30px py-3 md:py-30px flex justify-between items-center sticky top-0 bg-white bg-opacity-90">
       <div className="font-bold text-40px text-gray-700 uppercase flex items-center">
-        <Link href="/"><a><Image src="/images/logo.png" width="90" height="90" alt="Pagadalak" /></a></Link>
-        <h2 className="hidden text-2xl lg:text-3xl lg:block truncate">Camiling Educational Institution Finder</h2>
+        <Link href="/"><a><Image src="/images/logo.png" width="150" height="150" alt="Pagadalak" /></a></Link>
+        <Link href="/"><a><h2 className="hidden text-2xl lg:text-3xl lg:block truncate">Camiling Educational Institution Finder</h2></a></Link>
       </div>
       <div className="">
         <ul className="flex space-x-3 md:space-x-10">

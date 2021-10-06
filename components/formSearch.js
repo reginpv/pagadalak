@@ -1,9 +1,9 @@
 import { useState } from 'react'
 import formSearchInputs from '../data/formSearchInputs.json'
 
-export default function FormSearch({ className }){
+export default function FormSearch({ className, queryString }){
 
-  const [ stateTerms, setStateTerms] = useState({type: "", level: "", ["strategy"]: "", ["tuition"]: ""})
+  const [ stateTerms, setStateTerms] = useState(queryString || {})
 
   return(
     <form action="/search" method="get" className={className}>

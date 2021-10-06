@@ -54,7 +54,7 @@ export default function Search({ qs }) {
     <Basic>
 
       <div className="px-30px py-3 md:py-30px">
-        <FormSearch query={query} className="w-full grid grid-flow-row md:grid-flow-col gap-2 md:gap-5 p-3 bg-gray-100" />
+        <FormSearch queryString={qs} className="w-full grid grid-flow-row md:grid-flow-col gap-2 md:gap-5 p-3 bg-gray-100" />
       </div>
 
       {

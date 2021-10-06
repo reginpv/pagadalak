@@ -35,7 +35,7 @@ export default function School({ id }) {
       classMain="flex w-full h-full"
     >
       <div className="px-30px py-3 md:py-30px flex-grow flex flex-col-reverse md:flex-row md:space-x-10">
-        <div>
+        <div className="bg-white p-3">
           <h1 className="font-bold text-xl mt-5 mb-2 md:mt-0 md:mb-5">{stateSchool.name}</h1>
           <table className="table-auto w-full">
             <tbody>
@@ -81,13 +81,13 @@ export default function School({ id }) {
 
                     {
                       stateSchool?.abm ||
-                      stateSchool?.hums ||
+                      stateSchool?.humss ||
                       stateSchool?.stem ||
                       stateSchool?.tvl ?
                         <div className="italic">
                           <h4>Strands:</h4>
                           {stateSchool?.abm ? `ABM` : null}&nbsp;
-                          {stateSchool?.hums ? `HUMS` : null}&nbsp;
+                          {stateSchool?.humss ? `HUMSS` : null}&nbsp;
                           {stateSchool?.stem ? `STEM` : null}&nbsp;
                           {stateSchool?.tvl ? `TVL` : null}&nbsp;
                         </div> :
