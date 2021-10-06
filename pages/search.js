@@ -22,14 +22,15 @@ export default function Search({ qs }) {
     if(qs.tuition!=="") {
       if(qs.level!=="") {
 
-        constraints.push(where(qs.level, "==", qs.tuition))
+        constraints.push(where(`${qs.level}Tuition`, "==", qs.tuition))
 
       } else {
+        console.log('lll',qs.tuition)
         constraints.push(where("elementaryTuition", "==", qs.tuition))
     
-        constraints.push(where("juniorHighSchoolTuition", "==", qs.tuition))
+        //constraints.push(where("juniorHighSchoolTuition", "==", qs.tuition))
     
-        constraints.push(where("seniorHighSchoolTuition", "==", qs.tuition))
+        //constraints.push(where("seniorHighSchoolTuition", "==", qs.tuition))
   
      } 
     }
