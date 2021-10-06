@@ -59,7 +59,7 @@ export default function FormSchoolEdit({ className, schoolId }){
               <option value="">Please select district</option>
               <option value="Central District">Central District</option>
               <option value="East District">East District</option>
-              <option value="West Disctrict">West District</option>
+              <option value="West District">West District</option>
             </select>
           </div> : null
       }

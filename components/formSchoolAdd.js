@@ -136,7 +136,7 @@ export default function FormSchoolAdd({ className }){
             <option value="">Please select district</option>
             <option value="Central District">Central District</option>
             <option value="East District">East District</option>
-            <option value="West Disctrict">West District</option>
+            <option value="West District">West District</option>
           </select>
           <span className="text-red-500 text-14px hidden px-1">District is required</span>
         </div>
