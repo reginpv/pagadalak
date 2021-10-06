@@ -25,11 +25,11 @@ export default function Search({ qs }) {
         constraints.push(where(qs.level, "==", qs.tuition))
 
       } else {
-        if(qs.level=="elementary") constraints.push(where("elementaryTuition", "==", qs.tuition))
+        constraints.push(where("elementaryTuition", "==", qs.tuition))
     
-        if(qs.level=="juniorHighchool") constraints.push(where("juniorHighSchoolTuition", "==", qs.tuition))
+        constraints.push(where("juniorHighSchoolTuition", "==", qs.tuition))
     
-        if(qs.level=="seniorHighSchool") constraints.push(where("seniorHighSchoolTuition", "==", qs.tuition))
+        constraints.push(where("seniorHighSchoolTuition", "==", qs.tuition))
   
      } 
     }
