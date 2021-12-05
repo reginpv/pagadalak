@@ -50,9 +50,7 @@ export default function Header(){
                 <span className="hidden md:inline-block">Welcome {user.name},&nbsp;</span> 
                 <button role="button" onClick={e=>handeLogout()}>Logout</button>
               </> : 
-              <Link href="/login">
-                <a>Login</a>
-              </Link>
+              null
             }
           </li>
         </ul>
