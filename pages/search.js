@@ -65,7 +65,7 @@ export default function Search({ qs }) {
         searchResults.length > 0 ?
         <>
           <div className="px-30px py-3 md:py-30px">
-            <div className="border-t border-b py-4 font-bold">Found {searchResults.length} results.</div>
+            <div className="border-t border-b py-4 font-bold">Found {searchResults.length} schools.</div>
           </div>
         </> :
         null
