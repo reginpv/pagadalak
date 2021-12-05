@@ -70,6 +70,12 @@ export default function FormSchoolEdit({ className, schoolId }){
       <div className="">
         <input className="w-full focus:outline-none p-3 border" type="text" name="geoaddress" placeholder="Please enter geo address" value={stateSchool?.geoaddress || ``} onChange={e=>setStateSchool({...stateSchool, geoaddress: e.target.value})} />
         <span className="text-red-500 text-14px hidden px-1">Geo address is required</span>
+
+        {/** Link for geo */}
+        <div className="py-3 px-1 text-center">
+          <a href="https://www.openstreetmap.org/#map=15/15.6863/120.4038&layers=N" target="_blank" rel="noopener noreferrer" className="font-bold text-center">Link for Geo Address</a>
+        </div>
+        
       </div>
 
       <div className="">
