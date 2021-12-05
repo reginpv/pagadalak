@@ -151,7 +151,9 @@ export default function Search({ qs }) {
               </Link>
             </div>
           )) :
-          <p className={`p-3 font-bold`}>0 Schools found.</p>
+          <div className="px-30px py-3 md:py-30px">
+            <div className="border-t border-b py-4 font-bold">0 Schools found.</div>
+          </div>
         }
       </div>
     </Basic>

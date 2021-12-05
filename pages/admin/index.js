@@ -37,7 +37,7 @@ export default function Admin({ schools }) {
       <div className="px-30px py-3 md:py-30px">
         <div className="py-3">
           <Link href="/admin/school/add">
-            <a className="p-3 border">Add new school</a>
+            <a className="p-3 border uppercase">Add new school</a>
           </Link>
         </div>
 
